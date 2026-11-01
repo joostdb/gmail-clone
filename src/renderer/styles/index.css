@@ -1,0 +1,739 @@
+/* Base Styles */
+:root {
+  --primary-color: #1a73e8;
+  --primary-hover: #1765cc;
+  --primary-light: #d2e3fc;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-light: #9aa0a6;
+  --background: #f6f8fc;
+  --background-hover: #f1f3f4;
+  --background-active: #e8eaed;
+  --border-color: #dadce0;
+  --white: #ffffff;
+  --error: #d93025;
+  --success: #188038;
+  --warning: #fbbc04;
+  
+  --sidebar-width: 256px;
+  --header-height: 64px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* App Layout */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--white);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.sidebar-header button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 24px;
+  padding: 4px;
+}
+
+.sidebar-section {
+  padding: 8px 0;
+}
+
+.sidebar-section-title {
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: var(--background-hover);
+}
+
+.sidebar-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.sidebar-item-icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.sidebar-item-label {
+  flex: 1;
+}
+
+.sidebar-item-count {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Account Switcher */
+.account-switcher {
+  padding: 16px;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.account-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account-email {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  height: var(--header-height);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 16px;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 700px;
+  margin: 0 16px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text-secondary);
+}
+
+/* Compose Button */
+.compose-button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.compose-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Email List */
+.email-list {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--white);
+  min-width: 300px;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.email-item:hover {
+  background-color: var(--background-hover);
+}
+
+.email-item.unread {
+  background-color: rgba(26, 115, 232, 0.05);
+  font-weight: 500;
+}
+
+.email-item.selected {
+  background-color: var(--primary-light);
+}
+
+.email-checkbox {
+  margin-right: 12px;
+  accent-color: var(--primary-color);
+}
+
+.email-star {
+  margin-right: 12px;
+  color: var(--text-light);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 4px;
+}
+
+.email-star.active {
+  color: #fbbc04;
+}
+
+.email-sender {
+  width: 180px;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.email-subject {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+
+.email-date {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+
+/* Email View */
+.email-view {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-left: 1px solid var(--border-color);
+  overflow-y: auto;
+}
+
+.email-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email-subject-header {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.email-sender-header {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.email-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.email-action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.email-action-button:hover {
+  background-color: var(--background-hover);
+  color: var(--text-primary);
+}
+
+.email-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.email-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.email-content {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: var(--text-primary);
+}
+
+.email-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Compose Modal */
+.compose-modal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 600px;
+  max-width: 90vw;
+  height: 600px;
+  max-height: 80vh;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.compose-modal-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compose-modal-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.compose-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-secondary);
+  padding: 4px 8px;
+}
+
+.compose-close:hover {
+  color: var(--text-primary);
+}
+
+.compose-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.compose-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.compose-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.compose-field input,
+.compose-field textarea {
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 0;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.compose-field input:focus,
+.compose-field textarea:focus {
+  border-bottom-color: var(--primary-color);
+}
+
+.compose-field textarea {
+  flex: 1;
+  resize: none;
+  min-height: 150px;
+}
+
+.compose-send {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background-color 0.2s;
+}
+
+.compose-send:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Account Modal */
+.account-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90vw;
+  max-height: 90vh;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.account-modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 10;
+}
+
+.account-modal-body {
+  padding: 24px;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.account-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-form-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.account-form-group input,
+.account-form-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  background: var(--white);
+}
+
+.account-form-group input:focus,
+.account-form-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.account-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.account-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.account-button.primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+}
+
+.account-button.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.account-button.secondary {
+  background-color: var(--white);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.account-button.secondary:hover {
+  background-color: var(--background-hover);
+}
+
+/* Loading States */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: var(--text-light);
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.empty-state-subtitle {
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .email-list {
+    flex: none;
+    height: 300px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .email-view {
+    flex: 1;
+    border-left: none;
+  }
+  
+  .compose-modal {
+    width: 90%;
+    height: 80%;
+    bottom: 5%;
+    right: 5%;
+  }
+  
+  .account-modal {
+    width: 90%;
+    max-height: 80vh;
+  }
+  
+  .email-sender {
+    width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .email-sender {
+    width: 80px;
+  }
+  
+  .email-subject {
+    display: none;
+  }
+  
+  .search-container {
+    display: none;
+  }
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.success-message {
+  color: var(--success);
+  font-size: 12px;
+  margin-top: 4px;
+}
