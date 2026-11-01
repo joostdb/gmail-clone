@@ -1,0 +1,52 @@
+{
+  "name": "gmail-clone",
+  "version": "1.0.0",
+  "description": "A local Gmail-like email client for PC, Mac, and Android",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "electron .",
+    "preview": "vite preview",
+    "build:electron": "vite build && electron-builder",
+    "build:android": "vite build && npx cap sync && npx cap copy && npx cap sync android",
+    "add:android": "npx cap add android",
+    "open:android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.7.0",
+    "@capacitor/core": "^5.7.0",
+    "@capacitor/cli": "^5.7.0",
+    "imap-simple": "^5.1.0",
+    "nodemailer": "^6.9.7",
+    "better-sqlite3": "^9.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.0",
+    "vite": "^5.0.10"
+  },
+  "build": {
+    "appId": "com.example.gmailclone",
+    "productName": "Gmail Clone",
+    "files": ["dist/**/*", "package.json"],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "mac": {
+      "target": ["dmg"]
+    },
+    "linux": {
+      "target": ["AppImage"]
+    }
+  },
+  "keywords": ["email", "gmail", "client", "imap", "smtp"],
+  "author": "Joost De Bock",
+  "license": "MIT"
+}
